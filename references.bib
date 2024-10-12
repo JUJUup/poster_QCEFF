@@ -1,0 +1,485 @@
+%
+% JOURNAL ABBREVIATIONS
+%
+@STRING{AMS 	= "Amer.\ Meteor.\ Soc."}
+@STRING{AGU 	= "Amer.\ Geophys.\ Union"}
+@STRING{AIP 	= "Amer. Inst. Phys."}
+@STRING{ADGEO     = "Adv.\ Geosci."}
+@STRING{AFM       = "Agric.\ For.\ Meteor."}
+@STRING{AM        = "Ann.\ Meteor."}
+@STRING{AN        = "Astrophys.\ Norv."}		% Astrophysica Norvegica
+@STRING{AO        = "Atmos.--Ocean"}			% Atmosphere--Ocean, published by Canadian Meteorological Society (CMOS)
+@STRING{AR        = "Atmos.\ Res."}			% Atmospheric Research
+@STRING{ARFM      = "Annu.\ Rev.\ Fluid Mech."}
+@STRING{AUMET     = "Aust.\ Meteor.\ Mag."}
+@STRING{BAMS      = "Bull.\ Amer.\ Meteor.\ Soc."}
+@STRING{CAP       = "Contrib.\ Atmos.\ Phys."}
+@STRING{CC        = "Climate Change"}      % Climate Change 
+@STRING{CCH       = "Climatic Change"}			% Climatic Change
+@STRING{CDYN      = "Climate Dyn."}
+@STRING{CHAOS     = "Chaos"}
+@STRING{COL       = "Collier's"}
+@STRING{CRS       = "Cont.\ Shelf Res."}
+@STRING{DAO       = "Dyn.\ Atmos.\ Oceans"}
+@STRING{ECO       = "Ecology"}
+@STRING{EI        = "Earth Interact."}
+@STRING{GA        = "Geophysica"}			% Geophysica, published by Geophysical Society of Finland 
+@STRING{GEOMAG    = "Geophys.\ Mag."}
+@STRING{GN        = "Geophys.\ Norv."}			% Geophysica Norvegica
+@STRING{GRL       = "Geophys.\ Res.\ Lett."}
+@STRING{GEOINT    = "Geofis.\ Int."}			% Geofisica Internacional (Mexican journal -- vols. 3--5 contained proceedings from a hurricane conference
+@STRING{GEOPUB    = "Geofys.\ Publ."}
+@STRING{GPC       = "Global Planet.\ Change"}
+@STRING{HP        = "Health Phys."}
+@STRING{IAOP      = "Izv.\ Atmos.\ Ocean.\ Phys.\ (Engl.\ Transl.)"}
+@STRING{IJC       = "Int.\ J.\ Climatol."}
+@STRING{JAM       = "J.\ Appl.\ Meteor."}		% renamed to name below in 2006
+@STRING{JAMC      = "J.\ Appl.\ Meteor.\ Climatol."}  	% Journal of Applied Meteorology and Climatology (this journal used to be called the Journal of Applied Meteorology before 2006)
+@STRING{JAS       = "J.\ Atmos.\ Sci."}
+@STRING{JAOT      = "J.\ Atmos.\ Oceanic Technol."}
+@STRING{JCAM      = "J.\ Climate Appl.\ Meteor."}	% from 1983--87, now JAMC
+@STRING{JCLI      = "J.\ Climate"}
+@STRING{JCR       = "J.\ Coastal Res."}
+@STRING{JFM       = "J.\ Fluid\ Mech."}
+@STRING{JEM       = "J.\ Eng.\ Math."}			% Journal of Engineering Mathematics
+@STRING{JGR       = "J.\ Geophys.\ Res."}
+@STRING{JHM       = "J.\ Hydrometeor."}
+@STRING{JMS       = "J.\ Mar.\ Syst."}
+@STRING{JM        = "J.\ Meteor."}
+@STRING{JMR       = "J.\ Mar.\ Res."}
+@STRING{JMSJ      = "J.\ Meteor.\ Soc.\ Japan"}
+@STRING{JPO       = "J.\ Phys.\ Oceanogr."}
+@STRING{JOCEAN    = "J.\ Oceanogr."}			% Journal of Oceanography
+@STRING{JOSJ      = "J.\ Oceanogr.\ Soc.\ Japan"}
+@STRING{JSE       = "J.\ Struct.\ Eng."}	% Journal of Structural Engineering at ASCE
+@STRING{JTM       = "J.\ Tropical Meteor."}
+@STRING{JWEIA     = "J.\ Wind Eng.\ Ind.\ Aerodyn."}
+@STRING{MA        = "Meteor.\ Appl."}
+@STRING{MAP       = "Meteor.\ Atmos.\ Phys."}
+@STRING{METMON    = "Meteor.\ Monogr."}
+@STRING{METZEIT   = "Meteor.\ Z."}
+@STRING{MWL       = "Mar.\ Wea.\ Log"}
+@STRING{MWR       = "Mon.\ Wea.\ Rev."}
+@STRING{NAT       = "Nature"}
+@STRING{NHR       = "Nat.\ Hazards Rev."}
+@STRING{NWD       = "Natl.\ Weather Dig."}
+@STRING{OA        = "Oceanol. Aeta"}
+@STRING{OCEAN     = "Oceanography"}                	% a quarterly journal of The Oceanography Society
+@STRING{PAG       = "Pure Appl.\ Geophys."}
+@STRING{PF        = "Phys.\ Fluids"}
+@STRING{PHYSD     = "Physica D"}
+@STRING{PMG       = "Pap.\ Meteor.\ Geophys."}	% Papers in Meteorology and Geophysics
+@STRING{PNAS      = "Proc.\ Natl.\ Acad.\ Sci.\ (USA)"}
+@STRING{PRE       = "Phys.\ Rev.\ E"}
+@STRING{PRSA      = "Proc.\ Roy.\ Soc."}
+@STRING{PT        = "Phys.\ Today"}
+@STRING{PTRS      = "Philos.\ Trans.\ Roy.\ Soc.\ London"}
+@STRING{QJRMS     = "Quart.\ J.\ Roy.\ Meteor.\ Soc."}
+@STRING{RGEO      = "Rev. Geophys."}
+@STRING{SCI       = "Science"}
+@STRING{SOLA      = "SOLA"}				% Scientific Online Letters on the Atmosphere
+@STRING{TAGU      = "Eos, Trans.\ Amer.\ Geophys.\ Union"}
+@STRING{TELLUS    = "Tellus"}
+@STRING{TCFD      = "Theor.\ Comput.\ Fluid Dyn."}
+@STRING{WEA       = "Weather"}
+@STRING{WW        = "Weatherwise"}
+@STRING{WF        = "Wea.\ Forecasting"}
+@STRING{WMOB      = "WMO Bull."}
+
+%% SAMPLE REFERENCES. Insert your own reference database below the line.
+
+@article{RN319,
+   author = {McNally, A. P.},
+   title = {A note on the occurrence of cloud in meteorologically sensitive areas and the implications for advanced infrared sounders},
+   journal = {Quarterly Journal of the Royal Meteorological Society},
+   volume = {128},
+   number = {585},
+   pages = {2551-2556},
+   note = {McNally, AP
+A},
+   ISSN = {0035-9009},
+   DOI = {10.1256/qj.01.206},
+   url = {<Go to ISI>://WOS:000178925400018},
+   year = {2002},
+   type = {Journal Article}
+}
+
+@article{RN209,
+   author = {Anderson, Jeffrey L.},
+   title = {A Local Least Squares Framework for Ensemble Filtering},
+   journal = {Monthly Weather Review},
+   volume = {131},
+   number = {4},
+   pages = {634-642},
+   ISSN = {0027-0644},
+   DOI = {10.1175/1520-0493(2003)131<0634:allsff>2.0.co;2},
+   url = {https://dx.doi.org/10.1175/1520-0493(2003)131<0634:allsff>2.0.co;2},
+   year = {2003},
+   type = {Journal Article}
+}
+
+@article{RN11,
+   author = {Tan, Z. M. and Zhang, F. Q. and Rotunno, R. and Snyder, C.},
+   title = {Mesoscale predictability of moist baroclinic waves: Experiments with parameterized convection},
+   journal = {Journal of the Atmospheric Sciences},
+   volume = {61},
+   number = {14},
+   pages = {1794-1804},
+   note = {841cr
+Times Cited:71
+Cited References Count:23},
+   abstract = {Recent papers by the authors demonstrated the possible influence of initial errors of small amplitude and scale on the numerical prediction of the "surprise'' snowstorm of 24 - 25 January 2000. They found that initial errors grew rapidly at scales below 200 km, and that the rapid error growth was dependent on moist processes. In an attempt to generalize these results from a single case study, the present paper studies the error growth in an idealized baroclinic wave amplifying in a conditionally unstable atmosphere. The present results show that without the effects of moisture, there is little error growth in the short-term (0 - 36 h) forecast error ( starting from random noise), even though the basic jet used here produces a rapidly growing synoptic-scale disturbance. With the effect of moisture included, the error is characterized by upscale growth, basically as found by the authors in their study of the numerical prediction of the surprise snowstorm.},
+   keywords = {january 2000
+model
+cyclogenesis
+evolution
+growth
+snowstorm
+front},
+   ISSN = {0022-4928},
+   DOI = {Doi 10.1175/1520-0469(2004)061<1794:Mpombw>2.0.Co;2},
+   url = {<Go to ISI>://WOS:000222907400011},
+   year = {2004},
+   type = {Journal Article}
+}
+
+@article{RN242,
+   author = {Anderson, Jeffrey L.},
+   title = {A Non-Gaussian Ensemble Filter Update for Data Assimilation},
+   journal = {Monthly Weather Review},
+   volume = {138},
+   number = {11},
+   pages = {4186-4198},
+   ISSN = {1520-0493},
+   DOI = {10.1175/2010mwr3253.1},
+   url = {https://dx.doi.org/10.1175/2010mwr3253.1},
+   year = {2010},
+   type = {Journal Article}
+}
+
+@article{RN207,
+   author = {Bauer, Peter and Auligné, Thomas and Bell, William and Geer, Alan and Guidard, Vincent and Heilliette, Sylvain and Kazumori, Masahiro and Kim, Min-Jeong and Liu, Emily H. C. and McNally, Anthony P. and Macpherson, Bruce and Okamoto, Kozo and Renshaw, Richard and Riishøjgaard, Lars-Peter},
+   title = {Satellite cloud and precipitation assimilation at operational NWP centres},
+   journal = {Quarterly Journal of the Royal Meteorological Society},
+   volume = {137},
+   number = {661},
+   pages = {1934-1951},
+   ISSN = {0035-9009},
+   DOI = {10.1002/qj.905},
+   url = {https://dx.doi.org/10.1002/qj.905},
+   year = {2011},
+   type = {Journal Article}
+}
+
+@article{RN296,
+   author = {Geer, Alan J. and Bauer, Peter},
+   title = {Observation errors in all‐sky data assimilation},
+   journal = {Quarterly Journal of the Royal Meteorological Society},
+   volume = {137},
+   number = {661},
+   pages = {2024-2037},
+   ISSN = {0035-9009},
+   DOI = {10.1002/qj.830},
+   url = {https://dx.doi.org/10.1002/qj.830},
+   year = {2011},
+   type = {Journal Article}
+}
+
+@article{RN320,
+   author = {Amezcua, J. and Van Leeuwen, P. J.},
+   title = {Gaussian anamorphosis in the analysis step of the EnKF: a joint state-variable/observation approach},
+   journal = {Tellus Series a-Dynamic Meteorology and Oceanography},
+   volume = {66},
+   pages = {1-18},
+   note = {Amezcua, Javier Van Leeuwen, Peter Jan
+van Leeuwen (Note: publication and review record are incomplete! Don't use this as a source for anything), Peter Jan/A-1271-2010
+van Leeuwen (Note: publication and review record are incomplete! Don't use this as a source for anything), Peter Jan/0000-0003-2325-5340
+1600-0870},
+   ISSN = {0280-6495},
+   DOI = {10.3402/tellusa.v66.23493},
+   url = {<Go to ISI>://WOS:000343211000001},
+   year = {2014},
+   type = {Journal Article}
+}
+
+@article{RN291,
+   author = {Okamoto, K. and McNally, A. P. and Bell, W.},
+   title = {Progress towards the assimilation of all‐sky infrared radiances: an evaluation of cloud effects},
+   journal = {Quarterly Journal of the Royal Meteorological Society},
+   volume = {140},
+   number = {682},
+   pages = {1603-1614},
+   ISSN = {0035-9009},
+   DOI = {10.1002/qj.2242},
+   url = {https://dx.doi.org/10.1002/qj.2242},
+   year = {2014},
+   type = {Journal Article}
+}
+
+@article{RN314,
+   author = {Li, J. and Wang, P. and Han, H. J. and Li, J. L. and Zheng, J.},
+   title = {On the assimilation of satellite sounder data in cloudy skies in numerical weather prediction models},
+   journal = {Journal of Meteorological Research},
+   volume = {30},
+   number = {2},
+   pages = {169-182},
+   note = {Li Jun Wang Pei Han Hyojin Li Jinlong Zheng Jing
+Li, Jun/H-3579-2015; Li, Jun/IUQ-0517-2023; Wang, Pei/S-6864-2018
+Li, Jun/0000-0001-5504-9627; Li, Jun/0000-0001-5504-9627;
+2198-0934},
+   ISSN = {2095-6037},
+   DOI = {10.1007/s13351-016-5114-2},
+   url = {<Go to ISI>://WOS:000376399900003},
+   year = {2016},
+   type = {Journal Article}
+}
+
+@article{RN187,
+   author = {Miyoshi, Takemasa and Kunii, Masaru and Ruiz, Juan and Lien, Guo-Yuan and Satoh, Shinsuke and Ushio, Tomoo and Bessho, Kotaro and Seko, Hiromu and Tomita, Hirofumi and Ishikawa, Yutaka},
+   title = {“Big Data Assimilation” Revolutionizing Severe Weather Prediction},
+   journal = {Bulletin of the American Meteorological Society},
+   volume = {97},
+   number = {8},
+   pages = {1347-1354},
+   ISSN = {0003-0007},
+   DOI = {10.1175/bams-d-15-00144.1},
+   url = {https://dx.doi.org/10.1175/bams-d-15-00144.1},
+   year = {2016},
+   type = {Journal Article}
+}
+
+@article{RN293,
+   author = {Zhang, Fuqing and Minamide, Masashi and Clothiaux, Eugene E.},
+   title = {Potential impacts of assimilating all‐sky infrared satellite radiances from GOES‐R on convection‐permitting analysis and prediction of tropical cyclones},
+   journal = {Geophysical Research Letters},
+   volume = {43},
+   number = {6},
+   pages = {2954-2963},
+   ISSN = {0094-8276},
+   DOI = {10.1002/2016gl068468},
+   url = {https://dx.doi.org/10.1002/2016gl068468},
+   year = {2016},
+   type = {Journal Article}
+}
+
+@article{RN295,
+   author = {Minamide, Masashi and Zhang, Fuqing},
+   title = {Adaptive Observation Error Inflation for Assimilating All-Sky Satellite Radiance},
+   journal = {Monthly Weather Review},
+   volume = {145},
+   number = {3},
+   pages = {1063-1081},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-16-0257.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-16-0257.1},
+   year = {2017},
+   type = {Journal Article}
+}
+
+@article{RN208,
+   author = {Geer, Alan J. and Lonitz, Katrin and Weston, Peter and Kazumori, Masahiro and Okamoto, Kozo and Zhu, Yanqiu and Liu, Emily Huichun and Collard, Andrew and Bell, William and Migliorini, Stefano and Chambon, Philippe and Fourrié, Nadia and Kim, Min‐Jeong and Köpken‐Watts, Christina and Schraff, Christoph},
+   title = {All‐sky satellite data assimilation at operational weather forecasting centres},
+   journal = {Quarterly Journal of the Royal Meteorological Society},
+   volume = {144},
+   number = {713},
+   pages = {1191-1217},
+   ISSN = {0035-9009},
+   DOI = {10.1002/qj.3202},
+   url = {https://dx.doi.org/10.1002/qj.3202},
+   year = {2018},
+   type = {Journal Article}
+}
+
+@article{RN190,
+   author = {Honda, Takumi and Miyoshi, Takemasa and Lien, Guo-Yuan and Nishizawa, Seiya and Yoshida, Ryuji and Adachi, Sachiho A. and Terasaki, Koji and Okamoto, Kozo and Tomita, Hirofumi and Bessho, Kotaro},
+   title = {Assimilating All-Sky Himawari-8 Satellite Infrared Radiances: A Case of Typhoon Soudelor (2015)},
+   journal = {Monthly Weather Review},
+   volume = {146},
+   number = {1},
+   pages = {213-229},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-16-0357.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-16-0357.1},
+   year = {2018},
+   type = {Journal Article}
+}
+
+@article{RN292,
+   author = {Minamide, Masashi and Zhang, Fuqing},
+   title = {Assimilation of All-Sky Infrared Radiances from Himawari-8 and Impacts of Moisture and Hydrometer Initialization on Convection-Permitting Tropical Cyclone Prediction},
+   journal = {Monthly Weather Review},
+   volume = {146},
+   number = {10},
+   pages = {3241-3258},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-17-0367.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-17-0367.1},
+   year = {2018},
+   type = {Journal Article}
+}
+
+@article{RN268,
+   author = {Anderson, Jeffrey L.},
+   title = {A Nonlinear Rank Regression Method for Ensemble Kalman Filter Data Assimilation},
+   journal = {Monthly Weather Review},
+   volume = {147},
+   number = {8},
+   pages = {2847-2860},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-18-0448.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-18-0448.1},
+   year = {2019},
+   type = {Journal Article}
+}
+
+@article{RN218,
+   author = {Minamide, M. and Zhang, F. Q.},
+   title = {An adaptive background error inflation method for assimilating all-sky radiances},
+   journal = {Quarterly Journal of the Royal Meteorological Society},
+   volume = {145},
+   number = {719},
+   pages = {805-823},
+   note = {Minamide, Masashi Zhang, Fuqing
+Zhang, Fuqing/E-6522-2010; Minamide, Masashi/R-3932-2017
+Zhang, Fuqing/0000-0003-4860-9985; Minamide, Masashi/0000-0001-5402-3855
+1477-870x
+B},
+   ISSN = {0035-9009},
+   DOI = {10.1002/qj.3466},
+   url = {<Go to ISI>://WOS:000463971800025},
+   year = {2019},
+   type = {Journal Article}
+}
+
+@article{RN266,
+   author = {Anderson, Jeffrey L.},
+   title = {A Marginal Adjustment Rank Histogram Filter for Non-Gaussian Ensemble Data Assimilation},
+   journal = {Monthly Weather Review},
+   volume = {148},
+   number = {8},
+   pages = {3361-3378},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-19-0307.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-19-0307.1},
+   year = {2020},
+   type = {Journal Article}
+}
+
+@article{RN273,
+   author = {Chan, Man-Yau and Anderson, Jeffrey L. and Chen, Xingchao},
+   title = {An Efficient Bi-Gaussian Ensemble Kalman Filter for Satellite Infrared Radiance Data Assimilation},
+   journal = {Monthly Weather Review},
+   volume = {148},
+   number = {12},
+   pages = {5087-5104},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-20-0142.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-20-0142.1},
+   year = {2020},
+   type = {Journal Article}
+}
+
+@article{RN199,
+   author = {Ruiz, Juan and Lien, Guo-Yuan and Kondo, Keiichi and Otsuka, Shigenori and Miyoshi, Takemasa},
+   title = {Reduced non-Gaussianity by 30 s rapid update in convective-scale numerical weather prediction},
+   journal = {Nonlinear Processes in Geophysics},
+   volume = {28},
+   number = {4},
+   pages = {615-626},
+   ISSN = {1607-7946},
+   DOI = {10.5194/npg-28-615-2021},
+   url = {https://dx.doi.org/10.5194/npg-28-615-2021},
+   year = {2021},
+   type = {Journal Article}
+}
+
+@article{Jeff_2022,
+   author = {Anderson, J. L.},
+   title = {A Quantile-Conserving Ensemble Filter Framework. Part I: Updating an Observed Variable},
+   journal = {Monthly Weather Review},
+   volume = {150},
+   number = {5},
+   pages = {1061-1074},
+   note = {Anderson, Jeffrey L.
+1520-0493},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-21-0229.1},
+   url = {https://doi.org/10.1175/MWR-D-21-0229.1},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{RN267,
+   author = {Grooms, Ian},
+   title = {A comparison of nonlinear extensions to the ensemble Kalman filter},
+   journal = {Computational Geosciences},
+   volume = {26},
+   number = {3},
+   pages = {633-650},
+   ISSN = {1420-0597},
+   DOI = {10.1007/s10596-022-10141-x},
+   url = {https://dx.doi.org/10.1007/s10596-022-10141-x},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{RN313,
+   author = {Li, J. and Geer, A. J. and Okamoto, K. and Otkin, J. A. and Liu, Z. Q. and Han, W. and Wang, P.},
+   title = {Satellite All-sky Infrared Radiance Assimilation: Recent Progress and Future Perspectives},
+   journal = {Advances in Atmospheric Sciences},
+   volume = {39},
+   number = {1},
+   pages = {9-21},
+   note = {Li, Jun Geer, Alan J. Okamoto, Kozo Otkin, Jason A. Liu, Zhiquan Han, Wei Wang, Pei
+Wang, Pei/S-6864-2018; Otkin, Jason/D-1737-2012; Li, Jun/H-3579-2015; Li, Jun/IUQ-0517-2023
+Li, Jun/0000-0001-5504-9627; Li, Jun/0000-0001-5504-9627
+1861-9533},
+   ISSN = {0256-1530},
+   DOI = {10.1007/s00376-021-1088-9},
+   url = {<Go to ISI>://WOS:000698894100001},
+   year = {2022},
+   type = {Journal Article}
+}
+
+@article{Jeff_2023,
+   author = {Anderson, Jeffrey L.},
+   title = {A Quantile-Conserving Ensemble Filter Framework. Part II: Regression of Observation Increments in a Probit and Probability Integral Transformed Space},
+   journal = {Monthly Weather Review},
+   volume = {151},
+   number = {10},
+   pages = {2759-2777},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-23-0065.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-23-0065.1},
+   year = {2023},
+   type = {Journal Article}
+}
+
+@article{RN264,
+   author = {Chan, Man‐Yau and Chen, Xingchao and Anderson, Jeffrey L.},
+   title = {The Potential Benefits of Handling Mixture Statistics via a Bi‐Gaussian EnKF: Tests With All‐Sky Satellite Infrared Radiances},
+   journal = {Journal of Advances in Modeling Earth Systems},
+   volume = {15},
+   number = {2},
+   ISSN = {1942-2466},
+   DOI = {10.1029/2022ms003357},
+   url = {https://dx.doi.org/10.1029/2022ms003357},
+   year = {2023},
+   type = {Journal Article}
+}
+
+@article{RN308,
+   author = {Zhou, Linfan and Lei, Lili and Tan, Zhe-Min and Zhang, Yi and Di, Di},
+   title = {Impacts of Observation Forward Operator on Infrared Radiance Data Assimilation with Fine Model Resolutions},
+   journal = {Monthly Weather Review},
+   volume = {151},
+   number = {1},
+   pages = {163-173},
+   ISSN = {0027-0644},
+   DOI = {10.1175/mwr-d-22-0084.1},
+   url = {https://dx.doi.org/10.1175/mwr-d-22-0084.1},
+   year = {2023},
+   type = {Journal Article}
+}
+
+

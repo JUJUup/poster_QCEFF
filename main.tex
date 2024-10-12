@@ -1,0 +1,237 @@
+\documentclass[final]{beamer}
+%% Possible paper sizes: a0, a0b, a1, a2, a3, a4.
+%% Possible orientations: portrait, landscape
+%% Font sizes can be changed using the scale option.
+\usepackage[size=a0,orientation=portrait]{beamerposter}
+
+\usetheme{gemini}
+\usecolortheme{seagull}
+\useinnertheme{rectangles}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{wrapfig,lipsum}
+\usepackage{cleveref}
+\usepackage{lipsum}
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.03\paperwidth}
+\setlength{\colwidth}{0.45\paperwidth}
+% \setlength\abovecaptionskip{-5pt}
+\setlength\belowcaptionskip{-5pt}
+\setlength{\headsep}{-5pt}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Logo (optional)
+% ====================
+
+% LaTeX logo taken from https://commons.wikimedia.org/wiki/File:LaTeX_logo.svg
+% use this to include logos on the left and/or right side of the header:
+\logoright{\includegraphics[height=6cm]{logos/nju_logo.png}}
+\logoleft{\includegraphics[height=6cm]{logos/nju_logo.png}}
+
+% ====================
+% Footer (optional)
+% ====================
+
+\footercontent{
+	Summer School of Data Assimilation for Geosciences, Nanjing, China \hfill
+	\insertdate \hfill
+	\href{mailto:myemail@exampl.com}{\texttt{haoxing@smail.nju.edu.cn}}
+}
+% (can be left out to remove footer)
+
+% ====================
+% My own customization
+% - BibLaTeX
+% - Boxes with tcolorbox
+% - User-defined commands
+% ====================
+\input{custom-defs.tex}
+
+%% Reference Sources
+\addbibresource{references.bib}
+\renewcommand{\pgfuseimage}[1]{\includegraphics[scale=2]{#1}}
+
+\title{A Probit-transformed Rank Histogram Filter for All-sky Infrared Radiance Assimilation}
+
+\author{Haoxing Ju \inst{1} \inst{2} \and Lili Lei \inst{1} \inst{2}}
+
+\institute[shortinst]{\inst{1} Key Laboratory of Mesoscale Severe Weather, Ministry of Education, Nanjing University, Nanjing, China \samelineand \inst{2} School of Atmospheric Sciences, Nanjing University, Nanjing, China} 
+% \samelineand \inst{2} Another Institute}
+
+% \date{January 01, 2023}
+
+\begin{document}
+\setbeamercolor{background canvas}{bg=lightgray}
+\begin{frame}[t]
+	\begin{columns}
+    	\begin{column}{2\colwidth+\sepwidth}
+    	\begin{block}{Introduction}
+    		 
+    		Assimilation of all-sky satellite-measured radiance is challenging. For clear and cloudy regions usually have different background error statistics, and the exact location of clouds is still hard to predict, so there exist mismatch between observation and first guess. The heteroscedasticity and cloud mismatch lead to a skewed and big-tailed prior distribution, which heavily breaks the Gaussian assumption of classic ensemble filters like EnKF or EnSRF. \\
+            \vspace{0.5cm}
+            Despite the non-Gaussian prior distribution, the strong non-linear relationship between radiance observation and state variables could also make EnKF-like algorithm sub-optimal,as the conventional algorithm using a linear regression to spread observation increment to other unobserved variables.The non-linear relationship would be more evident when model resolution is getting finer. \\
+            \vspace{0.5cm}
+            Recently, a Quantile-Conserving Ensemble Filter Framework(QCEFF) is proposed, filters within this framework will ensure each members to stay at the same quantile in prior/posterior PDF when updating an observed variable\parencite{Jeff_2022}. For updating an unobserved variable, the regression of observation increments is performed in a space where variables are transformed by the probit and probability integral transforms\parencite{Jeff_2023}. This results in a non-linear regression increment for unobserved variables in physical space. Thus a non-Gaussian filters like Rank Histogram Filter (RHF) within QCEFF could be expect to better handle non-Gaussian prior and non-linear relation situations like all-sky radiance assimilation. To explore the potential of QCEFF, the traditional EAKF, RHF, and RHF within QCEFF (QCF\_RHF) is evaluated here in an idealized WRF TC case with OSSE. 
+    		
+    	\end{block}
+    	\end{column}
+
+	\end{columns}
+
+	\begin{columns}[t]
+		\separatorcolumn
+		
+		\begin{column}{\colwidth}
+			\begin{block}{QCEFF update for unobserved variables}
+               Note prior, posterior(analysis) ensemble of observed variable as $y_n^p,y_n^a$, prior ensemble of state variable as $x_n^p$. Assume $y_n^p,x_n^p$ have continuous CDF $F_y^p,F_x^p$. The probit function is $\Phi^{-1}(Z)$. 
+               Variable in probit space (noted with tilde) is transformed using probit function and CDF:
+
+                \begin{equation}
+                    \widetilde {{\rm{x}}_n^p} = {{\rm{\Phi }}^{ - 1}}\left[ {{\rm{F}}_x^p\left( {{\rm{x}}_n^p} \right)} \right],\widetilde {y_n^p} = {{\rm{\Phi }}^{ - 1}}\left[ {F_y^p\left( {y_n^p} \right)} \right],\widetilde {y_n^a} = {{\rm{\Phi }}^{ - 1}}\left[ {F_y^p\left( {y_n^a} \right)} \right]
+                \end{equation}
+               A linear regression is conducted in probit space to get state variable probit posterior, and then transform back to physical space:
+
+                \begin{equation}
+                    x_n^a=(F_x^p)^{-1}[\Phi(\widetilde{x_n^a})]
+                \end{equation}
+            
+
+
+            \end{block}
+			\begin{block}{Single Observation Experiment}
+                \begin{itemize}
+     
+					\item \textbf{Point A}: Cloudy obs, skewed PDF caused by mismatch of clear model priors. 
+     
+					\item \textbf{Point B}: Clear obs, tail outliers caused by mismatch of cloudy model priors.
+     
+					\item \textbf{Point C}: Clear obs, Gaussian-like PDF.
+     
+				\end{itemize}
+                \begin{figure}
+                    \centerline{\includegraphics[width=0.8\colwidth,angle=0]{figure/singleOBS_fig1.png}}
+                    \caption{(a) Nature Run brightness temperature(K) at 040030 D03(300m).  A, B, and C are selected point observation assimilated in single observation experiment. (b-d) The probability density histogram of selected points A, B, and C, respectively. The azure and gray bars represent PDFs of clear-sky and cloudy members, respectively. The dashed line indicate synthetic BT observation. }\label{fig1}
+                \end{figure}
+
+			\end{block}
+			
+			\begin{block}{Singe Observation Experiment: Point A Results}
+				
+                \begin{itemize}
+     
+					\item Firstguess need large QVAPOR increment in eyewall region. QCF\_RHF has the largest increment.
+     
+					\item For EAKF and RHF, the analysis mean can only move along the linear regression line.
+     
+					\item QCF\_RHF updates QVAPOR with non-linear regression for each members, the analysis mean is above regression line and more close to NR.
+     
+				\end{itemize}
+ 
+                \begin{figure}
+                    \centerline{\includegraphics[width=0.8\colwidth,angle=0]{figure/singleOBS_fig2_point453.png}}
+                    \caption{Single observation assimilation results of point A. (a) Firstguess QVAPOR-BT scatter at given model point. Red dot represent BT observation and QVAPOR NR, blue dots are QVAPOR/BT of firstguess members. Dashed line represents linear regression of firstguess QVAPOR-BT. (b-c) Nature run and firstguess field of QVAPOR at vertical level 60.  “x” marks the single observation location and “*” marks selected model variable location for scatter figures. (d-e) Increment of assimilating single observation using EAKF, RHF, QCF\_RHF, respectively. (g-i) Firstguess and analysis QVAPOR-BT scatter at given model point. Green dots are QVAPOR/BT of analysis members. blue star represents firstguess mean; yellow star for analysis mean.}\label{fig2}
+                \end{figure}
+
+                % After been integrated and assimilated, the estimated emission $E^a$ can now be calculated by prescribed emission $E^p$ and $\lambda^a$ as:
+                % \begin{equation}
+                %     E^a=\lambda^a*E^{p} 
+                % \end{equation}
+				
+			
+				
+			\end{block}
+			
+		\end{column}
+	
+		\separatorcolumn
+		\begin{column}{\colwidth}
+			\begin{block}{Offline Assimilation Results: horizontal}
+
+    
+				\begin{figure}
+                    {\includegraphics[width=\colwidth,angle=0,scale=1]{figure/rmseplot_hist_forPaper_tight.png}}
+                    \caption{Domain-averaged RMSE of model variable (a-c) QVAPOR, (d-f) T, (g-i) U, (j-l) V at 353hpa. Results at different domain is devided as (a,d,g,j) D01 with 7.5km resolution, (b,e,h,k) D02 with 1.5km resolution and (c,f,i,l) D03 with 300m resolution. Yellow bar for EAKF analysis, green bar for RHF analysis, and red bar for QCF\_RHF analysis. Time points with no data is left with blank.}\label{rmse_horizontal}
+                \end{figure}
+
+                \begin{figure}
+                  \begin{minipage}[c]{0.45\textwidth}
+                    \includegraphics[width=\textwidth]{figure/QVAPOR_rmse_profile_forparper.png}
+                  \end{minipage}\hfill
+                  \begin{minipage}[c]{0.55\textwidth}
+                    \caption{Vertical profile of horizontal RMSE for QVAPOR at (a) D01 with 7.5km resolution. (b) D02 with 1.5km resolution. (c) D03 with 300m resolution. Black dashed line for FG, and yellow, green, red solid lines are EAKF/RHF/QCF\_RHF analysis, respectively. }\label{rmse_vert}
+                    
+                    \vspace{5cm}
+                    
+                    \begin{itemize}
+                        \item In horizontal, QCF\_RHF analysis RMSE of QVAPOR is always the lowest in the model layer closest to synthetic observation height (353hpa).
+                        \item In vertical, an evidently lower QVAPOR RMSE could be found for QCF\_RHF ranging from 600hpa to 300 hpa.
+                        \item The advantage of QCF\_RHF in RMSE would be more pronounced if resolution goes up.
+                    \end{itemize}  
+                    
+                    \vspace{2cm}
+                    
+                    There could be critiques that using RMSE as the only evaluation metric is inadequate. Other evaluation like sphere harmonic analysis and image histogram is available by emailing me if you have interests.
+                  \end{minipage}\hfill
+                \end{figure}
+			\end{block}
+			
+			% \begin{alertblock}{Offline assimilation results: vertical}
+
+   %              \begin{figure}
+   %                \begin{minipage}[c]{0.45\textwidth}
+   %                  \includegraphics[width=\textwidth]{figure/QVAPOR_rmse_profile_forparper.png}
+   %                \end{minipage}\hfill
+   %                \begin{minipage}[c]{0.55\textwidth}
+   %                  \caption{Vertical profile of horizontal RMSE for QVAPOR at (a) D01 with 7.5km resolution. (b) D02 with 1.5km resolution. (c) D03 with 300m resolution. Black dashed line for FG, and yellow, green, red solid lines are EAKF/RHF/QCF\_RHF analysis, respectively. }\label{fig_emiss_ts}
+   %                  \lipsum[1]
+   %                \end{minipage}\hfill
+   %              \end{figure}
+
+			% \end{alertblock}
+			
+			\begin{block}{Ensemble forecast results}
+                \begin{figure}
+                  \begin{minipage}[c]{0.7\textwidth}
+                    \includegraphics[width=\textwidth]{figure/rmseplot_ensembled02.png}
+                  \end{minipage}\hfill
+                  \begin{minipage}[c]{0.28\textwidth}
+                    \caption{Forecast ensemble mean RMSE at 353hpa. X-axis for time and y-axis for RMSE value. Subplots are (a) QVAPOR, (b) T, (c) U, and (d) V. Black dashed line for FG, and yellow, green, red solid lines are EAKF/RHF/QCF\_RHF analysis, respectively.}\label{rmse_fcst}
+                  \end{minipage}\hfill
+                \end{figure}
+                Starting from 040100, an ensemble forecast with 50 members is launched in D02, resolution 1.5km. Model settings keep unchanged as firstguess construction, with initial field variables replaced by filter analysis
+                \begin{itemize}
+                    \item QCF\_RHF outperform than other two filters by having the lowest QVAPOR RMSE during most of forecast range.
+                    \item RHF has a poor performance with the highest RMSE value for almost all variables at all available forecast time. 
+                \end{itemize}
+
+			\end{block}
+
+        \begin{alertblock}{References}
+            \printbibliography[heading=none]
+        \end{alertblock}
+
+			
+		\end{column}
+		
+		\separatorcolumn
+	\end{columns}
+\end{frame}
+\end{document}
